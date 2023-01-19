@@ -1,6 +1,9 @@
 // Variables
 let compChoice = '';
 let playerChoice = '';
+let player1score = 0;
+let player2score = 0;
+let computerScore = 0;
 
 // Divs that will hide or unhide
 let mainMenu = document.getElementById("mainMenu");
@@ -17,6 +20,7 @@ let cpu4of7Btn = document.getElementById("cpu4of7Btn");
 cpuBtn.addEventListener("click", function(){
     ClearScreen();
     CpuPage();
+    console.log(compChoice);
 })
 
 // Functions
@@ -29,12 +33,18 @@ function CpuPage() {
     let h2 = document.createElement("h2");
     h2.className = "cpuPageHeading";
     h2.textContent = "CPU Match";
+
+    // Create the text for the CPU page
+    let p = document.createElement("p");
+    p.className = "cpuParagraphText";
+    p.textContent = "Please choose how many rounds you would like to play.";
+    
 }
 
 function getAPI() {
     fetch("https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption")
     .then((response) => response.text())
-    .then((data) => console.log(data));
+    .then((data) => compChoice = data);
 }
 
 getAPI();
