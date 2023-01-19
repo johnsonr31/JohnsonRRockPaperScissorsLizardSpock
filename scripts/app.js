@@ -8,6 +8,7 @@ let computerScore = 0;
 // Divs that will hide or unhide
 let mainMenu = document.getElementById("mainMenu");
 let cpuOptions = document.getElementById("cpuOptions");
+let cpuMenu = document.getElementById("cpuMenu");
 
 // Buttons
 let cpuBtn = document.getElementById("cpuBtn");
@@ -29,16 +30,19 @@ function ClearScreen() {
 }
 
 function CpuPage() {
-    // Create the heading for the CPU page
-    let h2 = document.createElement("h2");
-    h2.className = "cpuPageHeading";
-    h2.textContent = "CPU Match";
-
-    // Create the text for the CPU page
-    let p = document.createElement("p");
-    p.className = "cpuParagraphText";
-    p.textContent = "Please choose how many rounds you would like to play.";
+    cpuMenu.innerHTML = CreateTitle();
     
+}
+
+function CreateTitle() {
+    let h1 = document.createElement("h1");
+    h1.className = "title";
+    h1.textContent = "Hello World!";
+
+    let bodyDiv = document.createElement("div");
+    bodyDiv.className = "bodyDiv";
+
+    bodyDiv.appendChild(h1);
 }
 
 function getAPI() {
