@@ -1,3 +1,7 @@
+// Variables
+let compChoice = '';
+let playerChoice = '';
+
 // Divs that will hide or unhide
 let mainMenu = document.getElementById("mainMenu");
 let cpuOptions = document.getElementById("cpuOptions");
@@ -10,3 +14,11 @@ let cpu3of5Btn = document.getElementById("cpu3of5Btn");
 let cpu4of7Btn = document.getElementById("cpu4of7Btn");
 
 
+// Functions
+function getAPI() {
+    fetch("https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption")
+    .then((response) => response.text())
+    .then((data) => console.log(data));
+}
+
+getAPI();
