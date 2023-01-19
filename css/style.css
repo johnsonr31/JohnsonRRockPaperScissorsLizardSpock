@@ -37,6 +37,25 @@ body{
     margin: auto;
 }
 
+.choiceBtns{
+    display: flex;
+    justify-items: space-between;
+    flex-direction: column;
+    align-content: center;
+    margin: auto;
+    
+}
+
+
+.choiceBtn{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    margin: 2em;
+    
+}
+
 .mainMenu{
     margin-left: auto;
     margin-right: auto;
