@@ -42,3 +42,17 @@ body{
     margin-right: auto;
     margin-bottom: 5em;
 }
+
+.paragraphText{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width: 13em;
+    border-radius: 0.5em;
+    padding: 1em;
+    height: auto;
+    font-size: 1.5em;
+}
