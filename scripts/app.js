@@ -4,6 +4,8 @@ let playerChoice = '';
 let player1score = 0;
 let player2score = 0;
 let computerScore = 0;
+let result = '';
+let playerWon = false;
 
 // Divs that will hide or unhide
 let mainMenu = document.getElementById("mainMenu");
@@ -129,7 +131,10 @@ function CreateOneRound() {
     btn1.textContent = "Rock";
     btn1.addEventListener("click", function () {
         userChoice = "Rock";
+        cpuMenu.innerHTML = "";
         console.log(userChoice);
+        getAPI();
+        console.log(compChoice);
     })
 
     let btn2 = document.createElement("div");
@@ -137,6 +142,7 @@ function CreateOneRound() {
     btn2.textContent = "Paper";
     btn2.addEventListener("click", function () {
         userChoice = "Paper";
+        cpuMenu.innerHTML = "";
         console.log(userChoice);
     })
 
@@ -145,6 +151,7 @@ function CreateOneRound() {
     btn3.textContent = "Scissors";
     btn3.addEventListener("click", function () {
         userChoice = "Scissors";
+        cpuMenu.innerHTML = "";
         console.log(userChoice);
     })
 
@@ -153,6 +160,7 @@ function CreateOneRound() {
     btn4.textContent = "Lizard";
     btn4.addEventListener("click", function () {
         userChoice = "Lizard";
+        cpuMenu.innerHTML = "";
         console.log(userChoice);
     })
 
@@ -161,6 +169,7 @@ function CreateOneRound() {
     btn5.textContent = "Spock";
     btn5.addEventListener("click", function () {
         userChoice = "Spock";
+        cpuMenu.innerHTML = "";
         console.log(userChoice);
     })
 
@@ -188,6 +197,30 @@ function getAPI() {
     fetch("https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption")
         .then((response) => response.text())
         .then((data) => compChoice = data);
+}
+
+function getResult() {
+    if(userChoice == compChoice)
+    {
+        result = 'This round is a tie!';
+        console.log(result);
+    }else if(userChoice == "Rock" && compChoice == "Paper")
+    {
+        result = 'Computer wins!';
+        console.log(result);
+    }else if(userChoice == "Rock" && compChoice == "Scissors")
+    {
+        result = 'You win!';
+        console.log(result);
+    }else if(userChoice == "Rock" && compChoice == "Lizard")
+    {
+        result = 'You win!';
+        console.log(result);
+    }else if(userChoice == "Rock" && compChoice == "Spock")
+    {
+        result = 'Computer wins!';
+        console.log(result);
+    }
 }
 
 
