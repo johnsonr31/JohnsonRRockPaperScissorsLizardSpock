@@ -220,7 +220,7 @@ function CreateOneRound() {
     btnCol5.appendChild(btn5);
 }
 
-
+// Creating five rounds function
 function CreateFiveRounds() {
     let returnToMenuBtn = document.createElement("a");
     returnToMenuBtn.className = "btn btn-primary";
@@ -331,8 +331,103 @@ function CreateFiveRounds() {
     btnCol5.appendChild(btn5);
 }
 
+// Get Result 5 rounds
+function getResult3OutOf5() {
+
+    getAPI();
+    if(userChoice == compChoice)
+    {
+        result = 'This round is a tie!';
+        console.log(userChoice + ' VS ' + compChoice);
+        console.log(result);
+    }else if(userChoice == "Rock" && compChoice == "Paper")
+    {
+        result = 'Paper covers Rock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);
+        console.log(result);
+        computerScore++;
+    }else if(userChoice == "Rock" && compChoice == "Scissors")
+    {
+        result = 'Rock crushes Scissors:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+        player1score++;
+    }else if(userChoice == "Rock" && compChoice == "Lizard")
+    {
+        result = 'Rock crushes Lizard:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Rock" && compChoice == "Spock")
+    {
+        result = 'Spock vaporizes Rock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Rock")
+    {
+        result = 'Paper covers Rock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Scissors")
+    {
+        result = 'Scissors cut Paper:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Lizard")
+    {
+        result = 'Lizard eats Paper:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Spock")
+    {
+        result = 'Paper Disproves Spock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Rock")
+    {
+        result = 'Rock crushes Scissors:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Paper")
+    {
+        result = 'Scissors cut Paper:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Lizard")
+    {
+        result = 'Scissors decapitate Lizard:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Spock")
+    {
+        result = 'Spock smashes Scissors:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Rock")
+    {
+        result = 'Rock crushes Lizard:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Paper")
+    {
+        result = 'Lizard eats Paper:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Scissors")
+    {
+        result = 'Scissors decapitate Lizard:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Spock")
+    {
+        result = 'Lizard poisons Spock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Rock")
+    {
+        result = 'Spock vaporizes Rock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Paper")
+    {
+        result = 'Paper disproves Spock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Scissors")
+    {
+        result = 'Spock smashes Scissors:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Lizard")
+    {
+        result = 'Lizard poisons Spock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }
+}
 
 
+// Get result single round
 function getResult() {
 
     getAPI();
