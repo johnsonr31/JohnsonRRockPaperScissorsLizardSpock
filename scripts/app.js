@@ -5,7 +5,9 @@ let versus = playerChoice + ' VS ' + compChoice;
 let player1score = 0;
 let player2score = 0;
 let computerScore = 0;
+let playCount = 0;
 let result = '';
+
 
 // This function will access the RPSLS API and save the result as a variable called "compChoice", which represents the computer opponent's choice
 function getAPI() {
@@ -219,6 +221,117 @@ function CreateOneRound() {
 }
 
 
+function CreateFiveRounds() {
+    let returnToMenuBtn = document.createElement("a");
+    returnToMenuBtn.className = "btn btn-primary";
+    returnToMenuBtn.textContent = "Back to Menu";
+    returnToMenuBtn.addEventListener("click", function () {
+        cpuMenu.innerHTML = "";
+        BackToTitle();
+    })
+
+    let h1 = document.createElement("h1");
+    h1.className = "pageHeading";
+    h1.textContent = "Player Turn";
+
+    let p = document.createElement("p");
+    p.className = "paragraphText";
+    p.textContent = "Please select Rock, Paper, Scissors, Lizard, or Spock:"
+
+    let btnRow = document.createElement("div");
+    btnRow.className = "row choiceBtns";
+
+    let btnCol1 = document.createElement("div");
+    btnCol1.className = "col-12 choiceBtn";
+
+    let btnCol2 = document.createElement("div");
+    btnCol2.className = "col-12 choiceBtn";
+
+    let btnCol3 = document.createElement("div");
+    btnCol3.className = "col-12 choiceBtn";
+
+    let btnCol4 = document.createElement("div");
+    btnCol4.className = "col-12 choiceBtn";
+
+    let btnCol5 = document.createElement("div");
+    btnCol5.className = "col-12 choiceBtn";
+
+    let btn1 = document.createElement("div");
+    btn1.className = "btn btn-primary";
+    btn1.textContent = "Rock";
+    btn1.addEventListener("click", function () {
+        userChoice = "Rock";
+        cpuMenu.innerHTML = "";
+        console.log(userChoice);
+        getResult();
+        ResultScreen();
+    })
+
+    let btn2 = document.createElement("div");
+    btn2.className = "btn btn-primary";
+    btn2.textContent = "Paper";
+    btn2.addEventListener("click", function () {
+        userChoice = "Paper";
+        cpuMenu.innerHTML = "";
+        console.log(userChoice);
+        getResult();
+        ResultScreen();
+    })
+
+    let btn3 = document.createElement("div");
+    btn3.className = "btn btn-primary";
+    btn3.textContent = "Scissors";
+    btn3.addEventListener("click", function () {
+        userChoice = "Scissors";
+        cpuMenu.innerHTML = "";
+        console.log(userChoice);
+        getResult();
+        ResultScreen();
+    })
+
+    let btn4 = document.createElement("div");
+    btn4.className = "btn btn-primary";
+    btn4.textContent = "Lizard";
+    btn4.addEventListener("click", function () {
+        userChoice = "Lizard";
+        cpuMenu.innerHTML = "";
+        console.log(userChoice);
+        getResult();
+        ResultScreen();
+    })
+
+    let btn5 = document.createElement("div");
+    btn5.className = "btn btn-primary";
+    btn5.textContent = "Spock";
+    btn5.addEventListener("click", function () {
+        userChoice = "Spock";
+        cpuMenu.innerHTML = "";
+        console.log(userChoice);
+        getResult();
+        ResultScreen();
+    })
+
+    let bodyDiv = document.createElement("div");
+    bodyDiv.className = "bodyDiv";
+
+    bodyDiv.appendChild(returnToMenuBtn);
+    bodyDiv.appendChild(h1);
+    bodyDiv.appendChild(p);
+    cpuMenu.appendChild(bodyDiv);
+    bodyDiv.appendChild(btnRow);
+    btnRow.appendChild(btnCol1);
+    btnRow.appendChild(btnCol2);
+    btnRow.appendChild(btnCol3);
+    btnRow.appendChild(btnCol4);
+    btnRow.appendChild(btnCol5);
+    btnCol1.appendChild(btn1);
+    btnCol2.appendChild(btn2);
+    btnCol3.appendChild(btn3);
+    btnCol4.appendChild(btn4);
+    btnCol5.appendChild(btn5);
+}
+
+
 
 function getResult() {
 
@@ -311,6 +424,8 @@ function getResult() {
         console.log(userChoice + ' VS ' + compChoice);        console.log(result);
     }
 }
+
+
 
 function BackToTitle(){
     let heading = document.createElement("h1");
