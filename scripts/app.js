@@ -7,6 +7,15 @@ let computerScore = 0;
 let result = '';
 let playerWon = false;
 
+// This function will access the RPSLS API and save the result as a variable called "compChoice", which represents the computer opponent's choice
+function getAPI() {
+    fetch("https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption")
+        .then((response) => response.text())
+        .then((data) => compChoice = data);
+}
+
+getAPI();
+
 // Divs that will hide or unhide
 let mainMenu = document.getElementById("mainMenu");
 let cpuOptions = document.getElementById("cpuOptions");
@@ -43,7 +52,7 @@ function CreateTitle() {
     returnToMenuBtn.textContent = "Back to Menu";
     returnToMenuBtn.addEventListener("click", function () {
         cpuMenu.innerHTML = "";
-
+        
     })
 
     let h1 = document.createElement("h1");
@@ -98,6 +107,10 @@ function CreateTitle() {
     btnCol3.appendChild(btn3);
 }
 
+
+
+console.log(compChoice);
+
 // CPU One Round Mode Function
 function CreateOneRound() {
     let h1 = document.createElement("h1");
@@ -133,8 +146,8 @@ function CreateOneRound() {
         userChoice = "Rock";
         cpuMenu.innerHTML = "";
         console.log(userChoice);
-        getAPI();
-        console.log(compChoice);
+        getResult();
+        ResultScreen();
     })
 
     let btn2 = document.createElement("div");
@@ -192,14 +205,11 @@ function CreateOneRound() {
     btnCol5.appendChild(btn5);
 }
 
-// This function will access the RPSLS API and save the result as a variable called "compChoice", which represents the computer opponent's choice
-function getAPI() {
-    fetch("https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption")
-        .then((response) => response.text())
-        .then((data) => compChoice = data);
-}
+
 
 function getResult() {
+
+    getAPI();
     if(userChoice == compChoice)
     {
         result = 'This round is a tie!';
@@ -223,7 +233,23 @@ function getResult() {
     }
 }
 
+function ResultScreen(){
+    let heading = document.createElement("h1");
+    heading.className = "pageHeading";
+    heading.textContent = "Results:";
 
+    let winnerText = document.createElement("p");
+    winnerText.className = "paragraphText";
+    winnerText.textContent = result;
+
+    let bodyDiv = document.createElement("div");
+    bodyDiv.className = "container";
+
+    bodyDiv.appendChild(heading);
+    bodyDiv.appendChild(winnerText);
+
+
+}
 
 // Event Listeners
 cpuBtn.addEventListener("click", function () {
