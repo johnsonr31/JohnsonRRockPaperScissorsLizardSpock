@@ -1,11 +1,11 @@
 // Variables
 let compChoice = '';
 let playerChoice = '';
+let versus = playerChoice + ' VS ' + compChoice;
 let player1score = 0;
 let player2score = 0;
 let computerScore = 0;
 let result = '';
-let playerWon = false;
 
 // This function will access the RPSLS API and save the result as a variable called "compChoice", which represents the computer opponent's choice
 function getAPI() {
@@ -41,10 +41,6 @@ function CpuPage() {
 
 }
 
-function CpuOneRoundPage() {
-
-}
-
 // CPU Menu Function
 function CreateTitle() {
     let returnToMenuBtn = document.createElement("a");
@@ -52,7 +48,7 @@ function CreateTitle() {
     returnToMenuBtn.textContent = "Back to Menu";
     returnToMenuBtn.addEventListener("click", function () {
         cpuMenu.innerHTML = "";
-        
+        BackToTitle();
     })
 
     let h1 = document.createElement("h1");
@@ -157,6 +153,8 @@ function CreateOneRound() {
         userChoice = "Paper";
         cpuMenu.innerHTML = "";
         console.log(userChoice);
+        getResult();
+        ResultScreen();
     })
 
     let btn3 = document.createElement("div");
@@ -166,6 +164,8 @@ function CreateOneRound() {
         userChoice = "Scissors";
         cpuMenu.innerHTML = "";
         console.log(userChoice);
+        getResult();
+        ResultScreen();
     })
 
     let btn4 = document.createElement("div");
@@ -175,6 +175,8 @@ function CreateOneRound() {
         userChoice = "Lizard";
         cpuMenu.innerHTML = "";
         console.log(userChoice);
+        getResult();
+        ResultScreen();
     })
 
     let btn5 = document.createElement("div");
@@ -184,6 +186,8 @@ function CreateOneRound() {
         userChoice = "Spock";
         cpuMenu.innerHTML = "";
         console.log(userChoice);
+        getResult();
+        ResultScreen();
     })
 
     let bodyDiv = document.createElement("div");
@@ -213,24 +217,130 @@ function getResult() {
     if(userChoice == compChoice)
     {
         result = 'This round is a tie!';
+        console.log(userChoice + ' VS ' + compChoice);
         console.log(result);
     }else if(userChoice == "Rock" && compChoice == "Paper")
     {
-        result = 'Computer wins!';
+        result = 'Paper covers Rock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);
         console.log(result);
     }else if(userChoice == "Rock" && compChoice == "Scissors")
     {
-        result = 'You win!';
-        console.log(result);
+        result = 'Rock crushes Scissors:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
     }else if(userChoice == "Rock" && compChoice == "Lizard")
     {
-        result = 'You win!';
-        console.log(result);
+        result = 'Rock crushes Lizard:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
     }else if(userChoice == "Rock" && compChoice == "Spock")
     {
-        result = 'Computer wins!';
-        console.log(result);
+        result = 'Spock vaporizes Rock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Rock")
+    {
+        result = 'Paper covers Rock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Scissors")
+    {
+        result = 'Scissors cut Paper:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Lizard")
+    {
+        result = 'Lizard eats Paper:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Paper" && compChoice == "Spock")
+    {
+        result = 'Paper Disproves Spock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Rock")
+    {
+        result = 'Rock crushes Scissors:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Paper")
+    {
+        result = 'Scissors cut Paper:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Lizard")
+    {
+        result = 'Scissors decapitate Lizard:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Scissors" && compChoice == "Spock")
+    {
+        result = 'Spock smashes Scissors:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Rock")
+    {
+        result = 'Rock crushes Lizard:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Paper")
+    {
+        result = 'Lizard eats Paper:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Scissors")
+    {
+        result = 'Scissors decapitate Lizard:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Lizard" && compChoice == "Spock")
+    {
+        result = 'Lizard poisons Spock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Rock")
+    {
+        result = 'Spock vaporizes Rock:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Paper")
+    {
+        result = 'Paper disproves Spock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Scissors")
+    {
+        result = 'Spock smashes Scissors:\nYou win!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
+    }else if(userChoice == "Spock" && compChoice == "Lizard")
+    {
+        result = 'Lizard poisons Spock:\nComputer wins!';
+        console.log(userChoice + ' VS ' + compChoice);        console.log(result);
     }
+}
+
+function BackToTitle(){
+    let heading = document.createElement("h1");
+    heading.className = "pageHeading";
+    heading.textContent = "Rock, Paper, Scissors, Lizard, Spock";
+
+    let menuBtnRow = document.createElement("div");
+    menuBtnRow.className = "row menuBtns";
+
+    let menuCol1 = document.createElement("div");
+    menuCol1.className = "col-6 menuBtn";
+    
+    let menuCol2 = document.createElement("div");
+    menuCol2.className = "col-6 menuBtn";
+
+    let cpuMatchBtn = document.createElement("a");
+    cpuMatchBtn.className = "btn btn-primary";
+    cpuMatchBtn.textContent = "CPU Match";
+    
+    let pvpMatchBtn = document.createElement("a");
+    pvpMatchBtn.className = "btn btn-primary";
+    pvpMatchBtn.textContent = "PvP Match";
+
+    let bodyDiv = document.createElement("div");
+    bodyDiv.className = "container";
+
+    menuCol1.appendChild(cpuMatchBtn);
+    menuCol2.appendChild(pvpMatchBtn);
+    menuBtnRow.appendChild(menuCol1);
+    menuBtnRow.appendChild(menuCol2);
+    bodyDiv.appendChild(heading);
+    bodyDiv.appendChild(menuBtnRow);
+    mainMenu.appendChild(bodyDiv);
+
+    cpuMatchBtn.addEventListener("click", function () {
+        ClearScreen();
+        CpuPage();
+        console.log('Working');
+    })
 }
 
 function ResultScreen(){
@@ -247,6 +357,7 @@ function ResultScreen(){
 
     bodyDiv.appendChild(heading);
     bodyDiv.appendChild(winnerText);
+    cpuMenu.appendChild(bodyDiv);
 
 
 }
@@ -255,5 +366,9 @@ function ResultScreen(){
 cpuBtn.addEventListener("click", function () {
     ClearScreen();
     CpuPage();
-    console.log(compChoice);
+    console.log('Working');
+})
+
+rulesBtn.addEventListener("click", function () {
+    alert('RULES:\nRock crushes Scissors and Lizard\nPaper covers Rock and disproves Spock\nScissors cut Paper and decapitate Lizard\nLizard eats Paper and poisons Spock\nSpock smashes Scissors and vaporizes Rock');
 })
