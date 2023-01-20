@@ -109,6 +109,14 @@ console.log(compChoice);
 
 // CPU One Round Mode Function
 function CreateOneRound() {
+    let returnToMenuBtn = document.createElement("a");
+    returnToMenuBtn.className = "btn btn-primary";
+    returnToMenuBtn.textContent = "Back to Menu";
+    returnToMenuBtn.addEventListener("click", function () {
+        cpuMenu.innerHTML = "";
+        BackToTitle();
+    })
+
     let h1 = document.createElement("h1");
     h1.className = "pageHeading";
     h1.textContent = "Player Turn";
@@ -193,6 +201,7 @@ function CreateOneRound() {
     let bodyDiv = document.createElement("div");
     bodyDiv.className = "bodyDiv";
 
+    bodyDiv.appendChild(returnToMenuBtn);
     bodyDiv.appendChild(h1);
     bodyDiv.appendChild(p);
     cpuMenu.appendChild(bodyDiv);
@@ -344,6 +353,14 @@ function BackToTitle(){
 }
 
 function ResultScreen(){
+    let returnToMenuBtn = document.createElement("a");
+    returnToMenuBtn.className = "btn btn-primary";
+    returnToMenuBtn.textContent = "Back to Menu";
+    returnToMenuBtn.addEventListener("click", function () {
+        cpuMenu.innerHTML = "";
+        BackToTitle();
+    })
+
     let heading = document.createElement("h1");
     heading.className = "pageHeading";
     heading.textContent = "Results:";
@@ -355,12 +372,15 @@ function ResultScreen(){
     let bodyDiv = document.createElement("div");
     bodyDiv.className = "container";
 
+    bodyDiv.appendChild(returnToMenuBtn);
     bodyDiv.appendChild(heading);
     bodyDiv.appendChild(winnerText);
     cpuMenu.appendChild(bodyDiv);
 
 
 }
+
+
 
 // Event Listeners
 cpuBtn.addEventListener("click", function () {
